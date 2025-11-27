@@ -9,11 +9,12 @@
 # FarmTech Solution - IoT Device
 
 
-## Nome do grupo: Leno's
+## Nome do grupo: Grupo 13
 
 ##  Integrantes: 
 - <a href="https://www.linkedin.com/in/leon-gonzalez-8701b9199/">Pablo Leon Dimauro Gonzalez</a>
-
+- <a href=“https://www.linkedin.com/in/jo%C3%A3o-nishikawa-1ba660263”>João Pedro Nishikawa Alves</a>
+- Gustavo Trindade Soares
 
 ##  Professores:
 ### Tutor(a) 
@@ -44,7 +45,7 @@ E o modelo logico:
 
 <img src="./assets/der.png" alt="Tabela de dispositivos" border="0" width=100% height=40%>
 
-A informação completa é obtido ao realizarmos uma query onde juntamos as duas tabelas com base no id_device:
+A informação completa é obtido ao realizarmos uma query onde juntamos as duas tabelas, de cardinalidade 1:N, com base no id_device:
 
 Query usada:
 
@@ -66,9 +67,20 @@ A integração do aprendizado de maquina com streamlit foi simples, onde coletam
 
 <img src="./assets/previsao.png" alt="Tabela de dispositivos" border="0" width=100% height=60%>
 
-Video onde explico sobre o banco de dados:
-Video onde explico sobre integração ML + Streamlit:
+Video onde explico sobre o banco de dados:https://www.youtube.com/watch?v=riX_RoYZSHk
 
+Video onde explico sobre integração ML + Streamlit (Parte 1): https://www.youtube.com/watch?v=JEhMSjU5spc
+
+Video onde explico sobre treinamento do modelo, previsoes e desempenho (Parte 2): https://www.youtube.com/watch?v=tqiL5Qx-GvI
+
+## Bibliotecas utilizadas
+
+* **Pandas**: Visualização e manipulação de tabelas
+* **Numpy**: Utilizada na metrica RMSE e na geração dos dados simulados (scripts/database/datageneration.py)
+* **SckitLearn**: Usada para treinamento, previsão e avaliação do modelo de aprendizagem de maquina
+* **Paho_mqtt**: Possibilita a comunicação MQTT de maneira mais pratica
+* **Oracledb**: Usado para realizar as operações no banco de dados oracle.
+* **Streamlit**: Responsável pela criação da interface web com python, onde podemos visualizar os resultados obtidos.
 
 ## Estrutura de pastas
 

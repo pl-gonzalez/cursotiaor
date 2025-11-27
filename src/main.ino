@@ -17,7 +17,7 @@ struct Dados dados;
 #define ID "2602"
 #define CULTURA "cana-de-acucar"
 
-#define INTERVALO 10000
+#define INTERVALO 30000
 
 unsigned long lastUpdate = 0;
 

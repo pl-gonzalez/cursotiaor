@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import random
 
-from mqtt.mqtt_client import conectar_mqtt
+from mqtt.mqtt_client import conectar_mqtt, get_ultima_mensagem
 from servicos.previsao_api import consultar_open_meteo
 from database.database import leituras,dispositivos_cadastrados,cadastrar_dispositivo
 from database.datageneration import generate_data
@@ -43,7 +43,6 @@ with previsao_col3:
 lista_dispositivos = dispositivos_cadastrados()
 
 
-mqtt = conectar_mqtt()
 df = generate_data()
 
 
@@ -51,7 +50,14 @@ df = generate_data()
 st.subheader("Ultimas Leituras:")
 dados_dispositivos = leituras()
 
-st.write(df)
+if st.button("🔄 Atualizar Leituras", key="atualizar_leituras"):
+        st.rerun()
+        
+
+st.write(dados_dispositivos)
+
+conectar_mqtt()
+
 
 
         

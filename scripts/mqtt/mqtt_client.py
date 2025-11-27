@@ -5,6 +5,10 @@ from datetime import datetime, timedelta
 from config import BROKER, PORT, TOKEN, CLIENT_ID, TOPIC 
 import paho.mqtt.client as mqtt
 from database.database import gravar_leitura
+import streamlit as st
+import pandas as pd 
+
+ultima_mensagem = None
 
 # Callback quando conecta
 def on_connect(client, userdata, flags, rc):
@@ -15,6 +19,7 @@ def on_connect(client, userdata, flags, rc):
 
 # Callback quando recebe mensagem
 def on_message(client, userdata, msg):
+    global ultima_mensagem
     try:
         payload = msg.payload.decode()  # converte bytes -> string
 
@@ -36,8 +41,10 @@ def on_message(client, userdata, msg):
         }
         print(dados_mqtt)
 
-        # Aqui chama função para gravação no banco        
         gravar_leitura(dados_mqtt)
+               
+        ultima_mensagem = dados_mqtt
+
         return dados_mqtt
     except Exception as e:
         print("Erro ao processar mensagem:", e)
@@ -49,6 +56,15 @@ def conectar_mqtt():
     client.username_pw_set(TOKEN)
     client.on_connect = on_connect
     client.on_message = on_message
-
+    client.on_disconnect = on_disconnect
+    client.reconnect_delay_set(min_delay=1, max_delay=300)
     client.connect(BROKER, PORT, 60)
     client.loop_start() 
+
+def on_disconnect(client, userdata, rc):
+    if rc != 0:
+        
+        client.reconnect()
+
+def get_ultima_mensagem():
+    return ultima_mensagem
