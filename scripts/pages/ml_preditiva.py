@@ -120,6 +120,6 @@ if not input_error:
     col3.metric("MAE", f"{mae:.2f}")
     col4.metric("R²", f"{r2:.2f}")
     st.subheader('Resultado da Previsão') 
-    st.write(f'Previsão de Produção:   {y_pred[0]:.2f} ton/ha')
+    st.metric('Previsão de Produção',f'{y_pred[0]:.2f} ton/ha')
 
    

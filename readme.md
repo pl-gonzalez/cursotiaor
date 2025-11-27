@@ -24,66 +24,50 @@
 
 ## Descrição
 
-Nesta fase do projeto, realizamos consultas no banco de dados Oracle. Como na fase anterior eu ja havia utilizado o banco de dados para outra atividade, já possuo os dados gravados, conforme mostra imagem abaixo:
+Nesta fase do projeto, realizamos a modelagem do banco de dados, implementação de de modelo simples de aprendizado supervisionado de regressão e prevemos quanto será a produção se os valores forem mantidos.
 
-<img src="./assets/print_banco_1.png" alt="Print do banco de dados" border="0" width=80% height=40%>
+### Banco de Dados
 
-Abaixo segue prints de consultas realizadas nos dados gravados.
+Decidimos organizar o banco em 2 tabelas, T_FT_DEVICE e T_FT_FIELD, conforme mostradas abaixo:
 
-O primeiro print exibe a maior temperatura do solo registrada:
+ T_FT_DEVICE:
+<img src="./assets/tb_device.png" alt="Tabela de dispositivos" border="0" width=80% height=40%>
 
-<img src="./assets/print_banco_2.png" alt="Print do banco de dados" border="0" width=80% height=40%>
+T_FT_FIELD:
+<img src="./assets/tb_field.png" alt="Tabela de dispositivos" border="0" width=80% height=40%>
 
-O segundo, mostra a menor temperatura do solo:
+Podemos verificar o modelo relacional do banco a seguir:
 
-<img src="./assets/print_banco_3.png" alt="Print do banco de dados" border="0" width=80% height=40%>
+<img src="./assets/mer.png" alt="Tabela de dispositivos" border="0" width=80% height=40%>
 
-A seguir, temos a media das temperaturas do solo de todos os dados gravados:
+E o modelo logico:
 
-<img src="./assets/print_banco_4.png" alt="Print do banco de dados" border="0" width=80% height=40%>
+<img src="./assets/der.png" alt="Tabela de dispositivos" border="0" width=80% height=40%>
 
-E por fim, uma consulta para exibir os registros onde a umidade do solo é menor que 50%, que no caso da lavoura escolhida (cana-de-açúcar) seria um cenário de escassez hídrica.
+A informação completa é obtido ao realizarmos uma query onde juntamos as duas tabelas com base no id_device:
 
-<img src="./assets/print_banco_5.png" alt="Print do banco de dados" border="0" width=80% height=40%>
+Query usada:
 
-Todos os resultados foram organizados para exibir o ultimo dado gravado.
+<img src="./assets/query.png" alt="Tabela de dispositivos" border="0" width=80% height=30%>
 
+Resposta do banco:
 
-Um video do funcionamento desta etapa pode ser encontrado em:
+<img src="./assets/registros.png" alt="Tabela de dispositivos" border="0" width=80% height=30%>
 
-https://youtu.be/W8iSZmoJprI
+### Integrando ML com StreamLit
 
-### Dashboard com Streamlit
+Antes de iniciarmos o treinamento do modelo, fizemos uma analise exploratoria, onde verificamos que nao temos valores nulos e nem outliers significativos. Tambem podemos ver outras informações e relações, como:
 
-Como parte da atividade, tambem desenvolvi um dashboard onde podemos visualizar a previsão do tempo para o dia de hoje e recomendação de irrigação de acordo com probabilidade de chuva, como mostra print abaixo:
+<img src="./assets/temperaturaDispotivo.png" alt="Tabela de dispositivos" border="0" width=100% height=50%>
 
-<img src="./assets/ds_previsao.png" alt="previsao no dashboard">
+Onde podemos observar a relação entre temperatura e produção para cada dispositivo cadastrado.
 
-Logo abaixo, temos o ultimo registro de dados no banco, ou seja, o mais atual:
+A integração do aprendizado de maquina com streamlit foi simples, onde coletamos os valores para cada atributo e inserimos no modelo, que retorna a quantidade de produção para aqueles valores.
 
-<img src="./assets/ult_leituras.png" alt="ultimas leituras no dashboard">
+<img src="./assets/previsao.png" alt="Tabela de dispositivos" border="0" width=100% height=60%>
 
-A seguir, temos duas caixas de seleção onde podemos filtrar as informações por ids de dispositivos e o modo de visualização, em tabela ou graficos combinados de temperatura e umidade e simples com o pH do solo.
-
-Filtro por id de dispositivo:
-
-<img src="./assets/filtro.png" alt="previsao no dashboard">
-
-Gráfico combinando temperatura e umidade do solo:
-
-<img src="./assets/graf_tempUmid.png" alt="previsao no dashboard">
-
-Gráfico do pH do solo:
-
-<img src="./assets/graf_ph.png" alt="previsao no dashboard">
-
-Visualização em tabela:
-
-<img src="./assets/tabela.png" alt="previsao no dashboard">
-
-Um video demonstrativo do funcionamento do dashboard pode ser encontrado em:
-
-https://youtu.be/-FFcJchI5Fk
+Video onde explico sobre o banco de dados:
+Video onde explico sobre integração ML + Streamlit
 
 
 ## Estrutura de pastas
