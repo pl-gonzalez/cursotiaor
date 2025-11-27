@@ -31,28 +31,28 @@ Nesta fase do projeto, realizamos a modelagem do banco de dados, implementação
 Decidimos organizar o banco em 2 tabelas, T_FT_DEVICE e T_FT_FIELD, conforme mostradas abaixo:
 
  T_FT_DEVICE:
-<img src="./assets/tb_device.png" alt="Tabela de dispositivos" border="0" width=80% height=40%>
+<img src="./assets/tb_device.png" alt="Tabela de dispositivos" border="0" width=100% height=40%>
 
 T_FT_FIELD:
-<img src="./assets/tb_field.png" alt="Tabela de dispositivos" border="0" width=80% height=40%>
+<img src="./assets/tb_field.png" alt="Tabela de dispositivos" border="0" width=100% height=40%>
 
 Podemos verificar o modelo relacional do banco a seguir:
 
-<img src="./assets/mer.png" alt="Tabela de dispositivos" border="0" width=80% height=40%>
+<img src="./assets/mer.png" alt="Tabela de dispositivos" border="0" width=100% height=40%>
 
 E o modelo logico:
 
-<img src="./assets/der.png" alt="Tabela de dispositivos" border="0" width=80% height=40%>
+<img src="./assets/der.png" alt="Tabela de dispositivos" border="0" width=100% height=40%>
 
 A informação completa é obtido ao realizarmos uma query onde juntamos as duas tabelas com base no id_device:
 
 Query usada:
 
-<img src="./assets/query.png" alt="Tabela de dispositivos" border="0" width=80% height=30%>
+<img src="./assets/query.png" alt="Tabela de dispositivos" border="0" width=100% height=30%>
 
 Resposta do banco:
 
-<img src="./assets/registros.png" alt="Tabela de dispositivos" border="0" width=80% height=30%>
+<img src="./assets/registros.png" alt="Tabela de dispositivos" border="0" width=100% height=30%>
 
 ### Integrando ML com StreamLit
 
@@ -67,7 +67,7 @@ A integração do aprendizado de maquina com streamlit foi simples, onde coletam
 <img src="./assets/previsao.png" alt="Tabela de dispositivos" border="0" width=100% height=60%>
 
 Video onde explico sobre o banco de dados:
-Video onde explico sobre integração ML + Streamlit
+Video onde explico sobre integração ML + Streamlit:
 
 
 ## Estrutura de pastas
@@ -76,7 +76,7 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
 - <b>assets</b>: aqui estão os arquivos de imagem para a elaboração deste arquivo.
 
-- <b>scripts</b>: Codigo em Python, realiza operações no banco de dados, comunicação MQTT, consultas a API e geração de alertas com base nos dados recebidos
+- <b>scripts</b>: Codigo em Python, realiza operações no banco de dados, comunicação MQTT, consultas a API e geração de alertas com base nos dados recebidos e geração de interfaces e paginas com streamlit.
 
 - <b>src</b>: Código criado para funcionamento do ESP32.
   
@@ -85,6 +85,7 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
 ## 🗃 Histórico de lançamentos
 
+* 0.1.1 - 27/11/25
 * 0.1.0 - 14/10/25
 
 ## 📋 Licença
