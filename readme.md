@@ -15,6 +15,9 @@
 - <a href="https://www.linkedin.com/in/leon-gonzalez-8701b9199/">Pablo Leon Dimauro Gonzalez</a>
 - <a href=“https://www.linkedin.com/in/jo%C3%A3o-nishikawa-1ba660263”>João Pedro Nishikawa Alves</a>
 - Gustavo Trindade Soares
+- Rafael Brites Pereira
+- Leonardo de Mattos Oliveira
+- Gabriela de Andrade Alves
 
 ##  Professores:
 ### Tutor(a) 
